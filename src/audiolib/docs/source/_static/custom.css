@@ -1,0 +1,11 @@
+.wy-nav-shift {
+   max-width: 250px;
+}
+ 
+.wy-nav-content {
+   max-width: 900px;
+}
+
+dt {
+   width: 100%;
+}
