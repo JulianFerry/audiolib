@@ -1,9 +1,0 @@
-[
-    {
-        "id": 0,
-        "config": {
-            "data_id": 0,
-            "instruments": ["keyboard_acoustic", "guitar_acoustic"]
-        }
-    }
-]
