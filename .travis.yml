@@ -1,0 +1,30 @@
+language: python
+python: "3.7"
+dist: xenial
+
+stages:
+  - test
+  - build
+
+# Pip's cache doesn't store the python packages
+# Cache the virtual environment to cache the installed packages
+cache: pip
+
+before_install:
+  - python -V
+  - curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+  - export PATH="$PATH:$HOME/.poetry/bin/"
+  - source $HOME/.poetry/env
+  
+install:
+  - poetry install -vv
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - poetry run flake8 audiolib/
+        - poetry run pytest tests/ --cov audiolib/
+    - stage: build
+      script:
+        - poetry build
