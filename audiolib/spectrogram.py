@@ -5,8 +5,7 @@ from warnings import warn, filterwarnings
 
 # Fix circular imports with absolute import
 from importlib import import_module
-_pkg = __name__.split('.')[0]
-_audio = import_module(f'{_pkg}.audio')
+_audio = import_module(f'audiolib.audio')
 
 
 class Spectrogram(np.ndarray):
