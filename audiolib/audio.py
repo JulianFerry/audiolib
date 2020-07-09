@@ -9,13 +9,13 @@ from scipy.signal import butter, lfilter
 
 # Fix circular imports with absolute import
 from importlib import import_module
-_spec = import_module(f'audiolib.spectrogram')
+_spec = import_module('audiolib.spectrogram')
 
 
 class Audio(np.ndarray):
     """
     Extension to numpy arrays which handles audio waveform data.
-    
+
     Defines audio-specific attributes and methods to display, process and convert
     audio to spectrograms.
 
@@ -38,7 +38,7 @@ class Audio(np.ndarray):
         The duration of the audio in seconds
     fundamental_freq: int
         The fundamental frequency of the audio (must be passed on object creation)
-    
+
     Methods
     -------
     __new__
@@ -82,7 +82,7 @@ class Audio(np.ndarray):
     def __array_finalize__(self, obj):
         """
         Numpy subclassing constructor.
-        
+
         This gets called every time an `Audio` object is created, either by using
         the `Audio()` object constructor or when an Audio method returns self.
         See https://numpy.org/devdocs/user/basics.subclassing.html
@@ -332,7 +332,7 @@ class Audio(np.ndarray):
             0 < r <= 1  (1 maximises frequency resolution)
         mode: ('max', 'fast')
             FFT mode:
-            
+
             * 'max' uses the number of audio samples as n_fft
             * 'fast' uses the largest power of 2 smaller than the number of samples
 
@@ -387,7 +387,7 @@ class Audio(np.ndarray):
         num_octaves = np.log2(fmax/fmin)
         int_octaves = int(math.ceil(num_octaves)) - 1
         hop_length = self.shape[0] / time_intervals
-        hop_length = int(hop_length // (2**int_octaves)) * (2**(int_octaves))  # pow 2
+        hop_length = int(hop_length // (2**int_octaves)) * (2**(int_octaves))
         cqt_params = {
             'n_bins': int(num_octaves * bins_per_octave),
             'bins_per_octave': bins_per_octave,

@@ -9,7 +9,7 @@ from warnings import warn
 
 # Fix circular imports with absolute import
 from importlib import import_module
-_audio = import_module(f'audiolib.audio')
+_audio = import_module('audiolib.audio')
 
 
 class AudioDataset:
@@ -153,7 +153,7 @@ class AudioFile:
         Metadata supplied by the audio dataset
     audio
         `Audio` object which defines methods to analyse audio waveforms.
-    
+
     Methods
     -------
     __init__

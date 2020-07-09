@@ -5,7 +5,7 @@ from warnings import warn, filterwarnings
 
 # Fix circular imports with absolute import
 from importlib import import_module
-_audio = import_module(f'audiolib.audio')
+_audio = import_module('audiolib.audio')
 
 
 class Spectrogram(np.ndarray):
@@ -90,7 +90,7 @@ class Spectrogram(np.ndarray):
     def __array_finalize__(self, obj):
         """
         Numpy subclassing constructor.
-        
+
         This gets called every time a `Spectrogram` object is created, either by using
         the `Spectrogram()` object constructor or when a Spectrogram method returns self.
         See https://numpy.org/devdocs/user/basics.subclassing.html
