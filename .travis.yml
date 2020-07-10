@@ -32,9 +32,11 @@ jobs:
     - stage: deploy
       script: skip
       deploy:
-        provider: script
-        script:
-        - poetry config repositories.pypiserver http://35.240.45.166
-        - poetry deploy publish -r pypiserver -u 'username' -p 'password'
+        skip_cleanup: true
+        provider: pypi
+        username: username
+        password: password
+        server: http://35.240.45.166/index
+        distributions: "sdist bdist_wheel"
         on:
           branch: master
