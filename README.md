@@ -2,14 +2,19 @@
 
 ## Introduction
 
-Audiolib is a wrapper around `numpy` and `librosa` created to speed up the analysis of audio data using numpy data pipelines.
+Audiolib is a wrapper around `numpy` and `librosa` which speeds up the analysis of audio data using data pipelines.
 
 The audiolib API defines two main classes: `Audio` and `Spectrogram`. These are extended versions of numpy arrays, with the addition of processing and visualisation methods, as well as methods to convert between the two classes.
 
 ## Installation
 
-### From source:
-Requirements: [poetry]
+### With pip (private repository)
+
+`pip install --index-url http://35.240.45.166/simple/ --trusted-host 35.240.45.166 audiolib`
+
+### From source
+
+Requirements: [poetry](https://github.com/python-poetry/poetry)
 
 `poetry install --no-dev`
 
@@ -19,21 +24,12 @@ Requirements: [poetry]
 
 
 ```python
-# Load sample
-from audiolib import samples
+from audiolib import samples, Audio
 
+# Load sample (numpy array)
 piano_array, sampling_rate = samples.piano()
-print(type(piano_array))
-```
 
-    <class 'numpy.ndarray'>
-
-
-
-```python
 # Convert a numpy array to an Audio object, plot the waveform and play the audio
-from audiolib import Audio
-
 piano = Audio(piano_array, sampling_rate)
 print(type(piano))
 piano.plot()
@@ -44,7 +40,7 @@ piano.play()
 
 
 
-![png](README_files/README_6_1.png)
+![png](README_files/README_10_1.png)
 
 
 
@@ -65,7 +61,7 @@ piano.play()
 ```
 
 
-![png](README_files/README_7_0.png)
+![png](README_files/README_11_0.png)
 
 
 
@@ -79,7 +75,7 @@ piano[::-1].plot()
 
 
 
-![png](README_files/README_8_1.png)
+![png](README_files/README_12_1.png)
 
 
 ### Spectrograms
@@ -97,24 +93,24 @@ piano_spec.plot_fft()
 
 
 
-![png](README_files/README_10_1.png)
+![png](README_files/README_14_1.png)
 
 
 
-![png](README_files/README_10_2.png)
+![png](README_files/README_14_2.png)
 
 
 
 ```python
 # Spectrograms can be converted back to audio. This is a lossy conversion
 # which depends on the time and frequency resolutions used to create the spectrogram
-recovered_audio = spec.to_audio()
+recovered_audio = piano_spec.to_audio()
 recovered_audio.plot()
 recovered_audio.play()
 ```
 
 
-![png](README_files/README_11_0.png)
+![png](README_files/README_15_0.png)
 
 
 
@@ -130,6 +126,7 @@ recovered_audio.play()
 
 
 ```python
+# Do all of the above in one pipeline
 from audiolib import samples, Audio
 
 (Audio(*samples.piano())
@@ -140,7 +137,7 @@ from audiolib import samples, Audio
 ```
 
 
-![png](README_files/README_13_0.png)
+![png](README_files/README_17_0.png)
 
 
 
