@@ -203,7 +203,7 @@ class Spectrogram(np.ndarray):
         axis_harm: int = None,
         time_bin: int = 0,
         title: str = None,
-        figsize: tuple = (15, 4),
+        figsize: tuple = (15, 3),
         **kwargs
     ):
         """
