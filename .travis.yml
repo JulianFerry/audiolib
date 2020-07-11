@@ -4,7 +4,6 @@ dist: xenial
 
 stages:
   - test
-  - build
   - deploy
 
 # Pip's cache doesn't store the python packages
