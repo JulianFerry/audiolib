@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/JulianFerry/audiolib.svg?branch=master)](https://travis-ci.com/JulianFerry/audiolib)
+
 # Audiolib
 
 ## Introduction
@@ -40,7 +42,7 @@ piano.play()
 
 
 
-![png](README_files/README_10_1.png)
+![png](README_files/README_11_1.png)
 
 
 
@@ -61,7 +63,7 @@ piano.play()
 ```
 
 
-![png](README_files/README_11_0.png)
+![png](README_files/README_12_0.png)
 
 
 
@@ -75,7 +77,7 @@ piano[::-1].plot()
 
 
 
-![png](README_files/README_12_1.png)
+![png](README_files/README_13_1.png)
 
 
 ### Spectrograms
@@ -93,11 +95,11 @@ piano_spec.plot_fft()
 
 
 
-![png](README_files/README_14_1.png)
+![png](README_files/README_15_1.png)
 
 
 
-![png](README_files/README_14_2.png)
+![png](README_files/README_15_2.png)
 
 
 
@@ -110,7 +112,7 @@ recovered_audio.play()
 ```
 
 
-![png](README_files/README_15_0.png)
+![png](README_files/README_16_0.png)
 
 
 
@@ -137,7 +139,7 @@ from audiolib import samples, Audio
 ```
 
 
-![png](README_files/README_17_0.png)
+![png](README_files/README_18_0.png)
 
 
 
