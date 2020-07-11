@@ -26,17 +26,12 @@ jobs:
       script:
         - poetry run flake8 audiolib/
         - poetry run pytest tests/ --cov audiolib/
-    - stage: build
-      script:
-        - poetry build
     - stage: deploy
-      script: skip
       deploy:
-        skip_cleanup: true
-        provider: pypi
-        username: username
-        password: password
-        server: http://35.240.45.166/index
-        distributions: "sdist bdist_wheel"
+        provider: script
+        script:
+          - poetry config repositories.pypiserver http://35.240.45.166/
+          - poetry publish -r pypiserver -u username -p password --build
         on:
           branch: master
+          tags: true
