@@ -26,6 +26,7 @@ jobs:
         - poetry run flake8 audiolib/
         - poetry run pytest tests/ --cov audiolib/
     - stage: deploy
+      script: skip
       deploy:
         provider: script
         script:
