@@ -12,7 +12,7 @@ The audiolib API defines two main classes: `Audio` and `Spectrogram`. These are 
 
 ### With pip (private repository)
 
-`pip install --index-url http://35.241.140.214/simple/ --trusted-host 35.241.140.214 audiolib`
+`pip install --extra-index-url https://test.pypi.org/simple/ audiolib`
 
 ### From source
 
@@ -22,7 +22,7 @@ Requirements: [poetry](https://github.com/python-poetry/poetry)
 
 ## Documentation
 
-Hosted at: http://34.78.87.24/
+... to be hosted on readthedocs
 
 ## Demo:
 
